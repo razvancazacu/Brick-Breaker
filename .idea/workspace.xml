@@ -2,16 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8056afad-70ed-4235-afc1-e5fa84bb84f8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ball.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bg.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/brick.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/paddle.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/v2.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBracker/Gameplay.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBracker/LevelGenerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBracker/Main.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brickBracker/Gameplay.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brickBracker/LevelGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/brickBracker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brickBreaker/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/GameMovement.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/GameMovement.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/LevelGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/LevelGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/brick-breaker-java/com/brickBreaker/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/brick-breaker-java/myicons/18-01.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/brickBreaker/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/brickBreaker/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/myicons/18-01.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/18-01.png" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -22,20 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/imageio/ImageIO.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="1355" selection-start-line="1355" selection-end-line="1355" />
+            <state relative-caret-position="361">
+              <caret line="19" selection-start-line="19" selection-end-line="19" />
             </state>
           </provider>
         </entry>
@@ -43,8 +41,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-76">
-              <caret line="91" selection-start-line="91" selection-end-line="91" />
+            <state relative-caret-position="2603">
+              <caret line="146" column="61" selection-start-line="146" selection-start-column="61" selection-end-line="146" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,13 +50,37 @@
           </provider>
         </entry>
       </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="278">
+                <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v1.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/v2.png">
+          <provider selected="true" editor-type-id="images" />
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="513">
-              <caret line="27" selection-start-line="27" selection-end-line="27" />
+            <state relative-caret-position="342">
+              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
               <folding>
-                <element signature="e#1182#1183#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#1612#1613#0" expanded="true" />
+                <element signature="e#1649#1650#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,6 +95,11 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>2</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -85,6 +112,9 @@
         <option value="$PROJECT_DIR$/src/com/brickBracker/Main.java" />
         <option value="$PROJECT_DIR$/src/com/brickBreacker/Main.java" />
         <option value="$PROJECT_DIR$/src/com/brickBreaker/Main.java" />
+        <option value="$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java" />
+        <option value="$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -114,12 +144,6 @@
               <item name="brick-breaker-java" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="brick-breaker-java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="brick-breaker-java" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="myicons" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -131,12 +155,19 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553434001520" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553444414027" />
+    <property name="extract.method.default.visibility" value="private" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="restartRequiresConfirmation" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Stuffs\Facultate\git\brick-breaker-java" />
+      <recent name="D:\Stuffs\Facultate\git\brick-breaker-java\src" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\Stuffs\Facultate\git\brick-breaker-java\src" />
+      <recent name="D:\Stuffs\Facultate\git\brick-breaker-java\res" />
       <recent name="D:\Stuffs\Facultate\git\brick-breaker-java\src\myicons" />
     </key>
   </component>
@@ -185,18 +216,19 @@
       <option name="presentableId" value="Default" />
       <updated>1553378530393</updated>
       <workItem from="1553378533027" duration="4601000" />
-      <workItem from="1553426039702" duration="6847000" />
+      <workItem from="1553426039702" duration="15675000" />
+      <workItem from="1553444121389" duration="281000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11448000" />
+    <option name="totallyTimeSpent" value="20557000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="-8" width="1936" height="1096" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -205,7 +237,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32917964" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.09968847" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.19003116" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3997923" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -213,7 +245,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Database Changes" order="9" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.32917964" />
+      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.32917964" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.32917964" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -272,17 +304,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="513">
-          <caret line="27" selection-start-line="27" selection-end-line="27" />
-          <folding>
-            <element signature="e#1182#1183#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/myicons/18-01.png">
+    <entry file="file://$PROJECT_DIR$/src/18-01.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk-11.0.2/lib/src.zip!/java.desktop/javax/imageio/ImageIO.java">
@@ -292,20 +314,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/paddle_png_973741.png" />
+    <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/GameMovement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-76">
-          <caret line="91" selection-start-line="91" selection-end-line="91" />
+        <state relative-caret-position="2603">
+          <caret line="146" column="61" selection-start-line="146" selection-start-column="61" selection-end-line="146" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/Main.java">
+    <entry file="file://$PROJECT_DIR$/v1.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/v2.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/brickBreaker/LevelGenerator.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="19" lean-forward="true" selection-start-line="19" selection-end-line="19" />
+        <state relative-caret-position="342">
+          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#1612#1613#0" expanded="true" />
+            <element signature="e#1649#1650#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="278">
+            <caret line="18" column="48" selection-start-line="18" selection-start-column="48" selection-end-line="18" selection-end-column="48" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

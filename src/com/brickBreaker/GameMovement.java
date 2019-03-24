@@ -1,11 +1,15 @@
 package com.brickBreaker;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
 /*  Class that implements the game
  *  it extends a JPanel so it can be inserted into the JFrame */
@@ -19,24 +23,28 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
     private int brickRow;
 
     private Timer timer;
-    private int delay = 6;
+    private int delay = 8;
 
     private int playerX = 310;
 
     private int ballPosX = 120;
     private int ballPosY = 350;
     private int ballXDir = -1;
-    private int ballYDir = -2;
+    private int ballYDir = -3;
 
     private LevelGenerator map;
+
+    private BufferedImage paddleImg;
+    private BufferedImage ballImg;
+    private BufferedImage bgImg;
 
     /* Constructor for starting the game.
      * Register the GameMovement object to the KeyListener interface,
      * change the focus to this JPanel,
      * disable the traversal keys : tab, shift + tab, etc */
     public GameMovement() {
-        brickRow = 3;
-        brickCol = 4;
+        brickRow = 4;
+        brickCol = 8;
         map = new LevelGenerator(brickRow, brickCol);
         totalBricks = brickRow * brickCol;
         addKeyListener(this);
@@ -45,6 +53,13 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
         timer = new Timer(delay, this);
         timer.start();
 
+        try {
+            paddleImg = ImageIO.read(new File("src/paddle.png"));
+            ballImg = ImageIO.read(new File("src/ball.png"));
+            bgImg = ImageIO.read(new File("src/bg.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     /* Painting the graphics for the game by
@@ -57,55 +72,61 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
 
         // background
         graphics.setColor(Color.black);
-        graphics.fillRect(1, 1, 692, 592);
+        graphics.fillRect(0, 0, 692, 592);
+        graphics.drawImage(bgImg, 0, 0, 692, 592, null);
 
-        // borders
-        graphics.setColor(Color.yellow);
-        graphics.fillRect(0, 0, 3, 592);
-        graphics.fillRect(0, 0, 692, 3);
-        graphics.fillRect(681, 0, 3, 592);
+
+//        // borders
+//        graphics.setColor(Color.yellow);
+//        graphics.fillRect(0, 0, 3, 592);
+//        graphics.fillRect(0, 0, 692, 3);
+//        graphics.fillRect(681, 0, 3, 592);
 
         // drawing the map
         map.draw((Graphics2D) graphics);
 
         // score
         graphics.setColor(Color.white);
-        graphics.setFont(new Font("Candara", Font.BOLD, 25));
-        graphics.drawString("" + score, 590, 30);
+        graphics.setFont(new Font("Arial", Font.BOLD, 25));
+        graphics.drawString("" + score, 15, 30);
 
         // paddle
-        graphics.setColor(Color.green);
-        graphics.fillRect(playerX, 550, 100, 8);
+       /* graphics.setColor(Color.green);
+        graphics.fillRect(playerX, 550, 100, 8);*/
+        graphics.drawImage(paddleImg, playerX, 545, 100, 15, null);
+
 
         // ball
-        graphics.setColor(Color.red);
-        graphics.fillOval(ballPosX, ballPosY, 20, 20);
+        /*graphics.setColor(Color.red);
+        graphics.fillOval(ballPosX, ballPosY, 20, 20);*/
+        graphics.drawImage(ballImg, ballPosX, ballPosY, 20, 20, null);
+
 
         if (totalBricks <= 0) {
-            play = false;
-            ballXDir = 0;
-            ballYDir = 0;
-            graphics.setColor(Color.RED);
-            graphics.setFont(new Font("Candara", Font.BOLD, 30));
-            graphics.drawString("You Win, Score: "+ score, 240, 300);
+            restartGame(graphics);
+            graphics.drawString("You Win Score: " + score, 210, 300);
 
-            graphics.setFont(new Font("Candara", Font.BOLD, 30));
-            graphics.drawString("Press to Restart", 250, 350);
+            graphics.setFont(new Font("Arial", Font.BOLD, 30));
+            graphics.drawString("Press Enter to Restart", 220, 350);
         }
         if (ballPosY > 570) {
-            play = false;
-            ballXDir = 0;
-            ballYDir = 0;
-            graphics.setColor(Color.RED);
-            graphics.setFont(new Font("Candara", Font.BOLD, 30));
-            graphics.drawString("Game Over, Score: "+ score, 240, 300);
+            restartGame(graphics);
+            graphics.drawString("Game Over - Score: " + score, 10, 300);
 
-            graphics.setFont(new Font("Candara", Font.BOLD, 30));
-            graphics.drawString("Press to Restart", 250, 350);
+            graphics.setFont(new Font("Arial", Font.BOLD, 30));
+            graphics.drawString("Press Enter to Restart", 10, 350);
 
         }
 
         graphics.dispose();
+    }
+
+    private void restartGame(Graphics graphics) {
+        play = false;
+        ballXDir = 0;
+        ballYDir = 0;
+        graphics.setColor(Color.BLACK);
+        graphics.setFont(new Font("Arial", Font.BOLD, 30));
     }
 
     @Override
@@ -116,7 +137,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
 
         timer.start();
 
-        if (play == true) {
+        if (play) {
             if (new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX, 550, 100, 8))) {
                 ballYDir = -ballYDir;
             }
@@ -125,7 +146,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
             for (int i = 0; i < map.map.length; i++) {
                 for (int j = 0; j < map.map[0].length; j++) {
                     if (map.map[i][j] > 0) {
-                        int brickX = j * map.brickWidth + 80;
+                        int brickX = j * map.brickWidth + 40;
                         int brickY = i * map.brickHeight + 50;
                         int brickWidth = map.brickWidth;
                         int brickHeight = map.brickHeight;
@@ -199,7 +220,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
                 ballPosX = 120;
                 ballPosY = 350;
                 ballXDir = -1;
-                ballYDir = -2;
+                ballYDir = -3;
                 playerX = 310;
                 score = 0;
                 map = new LevelGenerator(brickRow, brickCol);
