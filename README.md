@@ -26,3 +26,4 @@
     
 ![Version 2](v2.png)
 
+Patch : You can now resize the window and the elements will resize as well.

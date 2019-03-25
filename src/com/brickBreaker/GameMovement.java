@@ -29,7 +29,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
 
     private int ballPosX = 120;
     private int ballPosY = 350;
-    private int ballXDir = -1;
+    private int ballXDir = -2;
     private int ballYDir = -3;
 
     private LevelGenerator map;
@@ -72,8 +72,8 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
 
         // background
         graphics.setColor(Color.black);
-        graphics.fillRect(0, 0, 692, 592);
-        graphics.drawImage(bgImg, 0, 0, 692, 592, null);
+        graphics.fillRect(0, 0, super.getWidth(), super.getHeight());
+        graphics.drawImage(bgImg, 0, 0, super.getWidth(), super.getHeight(), null);
 
 
 //        // borders
@@ -83,7 +83,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
 //        graphics.fillRect(681, 0, 3, 592);
 
         // drawing the map
-        map.draw((Graphics2D) graphics);
+        map.draw((Graphics2D) graphics, getWidth(), getHeight());
 
         // score
         graphics.setColor(Color.white);
@@ -93,13 +93,13 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
         // paddle
        /* graphics.setColor(Color.green);
         graphics.fillRect(playerX, 550, 100, 8);*/
-        graphics.drawImage(paddleImg, playerX, 545, 100, 15, null);
+        graphics.drawImage(paddleImg, playerX, super.getHeight() - super.getWidth() / 40, super.getWidth() / 6, super.getWidth() / 40, null);
 
 
         // ball
         /*graphics.setColor(Color.red);
         graphics.fillOval(ballPosX, ballPosY, 20, 20);*/
-        graphics.drawImage(ballImg, ballPosX, ballPosY, 20, 20, null);
+        graphics.drawImage(ballImg, ballPosX, ballPosY, super.getWidth() / 40, super.getWidth() / 40, null);
 
 
         if (totalBricks <= 0) {
@@ -109,7 +109,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
             graphics.setFont(new Font("Arial", Font.BOLD, 30));
             graphics.drawString("Press Enter to Restart", 220, 350);
         }
-        if (ballPosY > 570) {
+        if (ballPosY > super.getHeight()) {
             restartGame(graphics);
             graphics.drawString("Game Over - Score: " + score, 10, 300);
 
@@ -138,7 +138,8 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
         timer.start();
 
         if (play) {
-            if (new Rectangle(ballPosX, ballPosY, 20, 20).intersects(new Rectangle(playerX, 550, 100, 8))) {
+            if (new Rectangle(ballPosX, ballPosY, super.getWidth() / 40, super.getWidth() / 40)
+                    .intersects(new Rectangle(playerX, super.getHeight() - super.getWidth() / 44, super.getWidth() / 6, super.getWidth() / 40))) {
                 ballYDir = -ballYDir;
             }
 
@@ -146,13 +147,13 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
             for (int i = 0; i < map.map.length; i++) {
                 for (int j = 0; j < map.map[0].length; j++) {
                     if (map.map[i][j] > 0) {
-                        int brickX = j * map.brickWidth + 40;
-                        int brickY = i * map.brickHeight + 50;
-                        int brickWidth = map.brickWidth;
-                        int brickHeight = map.brickHeight;
+                        int brickX = j * getWidth() / (map.mapCol) + 30;
+                        int brickY = i * getHeight() / (map.mapRow*6) + 50;
+                        int brickWidth = getWidth()*4/100 + getWidth() / (map.mapCol*2) ;
+                        int brickHeight = getHeight() / (map.mapRow*6)  - 10;
 
                         Rectangle rectangle = new Rectangle(brickX, brickY, brickWidth, brickHeight);
-                        Rectangle ballRectangle = new Rectangle(ballPosX, ballPosY, 20, 20);
+                        Rectangle ballRectangle = new Rectangle(ballPosX, ballPosY, super.getWidth() / 40, super.getWidth() / 40);
                         Rectangle brickRectangle = rectangle;
 
                         if (ballRectangle.intersects(brickRectangle)) {
@@ -160,7 +161,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
                             totalBricks--;
                             score += 5;
 
-                            if (ballPosX + 19 <= brickRectangle.x || ballPosX + 1 >= brickRectangle.x + brickRectangle.width) {
+                            if (ballPosX + super.getWidth() / 40 <= brickRectangle.x || ballPosX + 1 >= brickRectangle.x + brickRectangle.width) {
                                 ballXDir = -ballXDir;
                             } else {
                                 ballYDir = -ballYDir;
@@ -181,7 +182,7 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
             if (ballPosY < 0) {
                 ballYDir = -ballYDir;
             }
-            if (ballPosX > 670) {
+            if (ballPosX > getWidth()) {
                 ballXDir = -ballXDir;
             }
 
@@ -201,34 +202,37 @@ public class GameMovement extends JPanel implements KeyListener, ActionListener 
     public void keyPressed(KeyEvent e) {
 
         if (e.getKeyCode() == KeyEvent.VK_RIGHT) {
-            if (playerX > 600) {
-                playerX = 600;
-            } else {
+            if (playerX <= super.getWidth() - super.getWidth() / 6) {
                 moveRight();
             }
         }
         if (e.getKeyCode() == KeyEvent.VK_LEFT) {
-            if (playerX < 0) {
-                playerX = 0;
-            } else {
+            if (playerX >= 0) {
                 moveLeft();
             }
         }
         if (e.getKeyCode() == KeyEvent.VK_ENTER) {
             if (!play) {
-                play = true;
-                ballPosX = 120;
-                ballPosY = 350;
-                ballXDir = -1;
-                ballYDir = -3;
-                playerX = 310;
-                score = 0;
-                map = new LevelGenerator(brickRow, brickCol);
-                totalBricks = brickRow * brickCol;
-
-                repaint();
+                restartGame();
             }
         }
+        if (e.getKeyCode() == KeyEvent.VK_UP) {
+            restartGame();
+        }
+    }
+
+    private void restartGame() {
+        play=true;
+        ballPosX = 120;
+        ballPosY = 350;
+        ballXDir = -1;
+        ballYDir = -3;
+        playerX = getWidth()/2;
+        score = 0;
+        map = new LevelGenerator(brickRow, brickCol);
+        totalBricks = brickRow * brickCol;
+
+        repaint();
     }
 
     private void moveLeft() {

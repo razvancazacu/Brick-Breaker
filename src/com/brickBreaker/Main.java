@@ -1,6 +1,7 @@
 package com.brickBreaker;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Main {
 
@@ -11,9 +12,10 @@ public class Main {
         JFrame window = new JFrame();
         GameMovement gameMovement = new GameMovement();
 
-        window.setBounds(550, 200, 700, 600);
+        window.setBounds(1, 1, 1920, 1080);
         window.setTitle("Brick Breaker");
-        window.setResizable(false);
+        window.setResizable(true);
+
         window.setVisible(true);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         window.add(gameMovement);    // GameMovement object will run the game into the created JFrame
